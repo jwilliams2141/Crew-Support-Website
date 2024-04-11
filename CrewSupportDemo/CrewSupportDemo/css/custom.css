@@ -1,0 +1,230 @@
+﻿.login-bg {
+    /*background: #edf2f9;*/
+    background: url('../img/plane-6.jpg') no-repeat center top;
+    background-size: cover;
+}
+
+.shadow-lg {
+    box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+
+.flex-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.nCard{
+background : rgba(255,255,255,0.7) !important;
+}
+.user .form-control-user {
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+}
+.control-label {
+    font-size: 80%;
+}
+.btn-default {
+    color: #000;
+    background-color: #f1f5f6;
+    border-color: #c1c6ca;
+}
+
+    .btn-default:hover {
+        color: #000;
+        background-color: #e7eef0;
+        border-color: #c1c6ca;
+    }
+
+    .btn-default:focus, .btn-default.focus {
+        color: #000;
+        background-color: #e7eef0;
+        border-color: #c1c6ca;
+        box-shadow: 0 0 0 0.2rem rgba(215, 222, 227, 0.5);
+    }
+
+/*.btn-default.disabled, .btn-default:disabled {
+        color: #fff;
+        background-color: #e74a3b;
+        border-color: #e74a3b;
+    }
+
+    .btn-default:not(:disabled):not(.disabled):active, .btn-default:not(:disabled):not(.disabled).active,
+    .show > .btn-default.dropdown-toggle {
+        color: #fff;
+        background-color: #d52a1a;
+        border-color: #ca2819;
+    }
+
+        .btn-default:not(:disabled):not(.disabled):active:focus, .btn-default:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-default.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(235, 101, 88, 0.5);
+        }*/
+.btn-xs {
+    padding: 0.280rem 0.3rem;
+    font-size: 0.875rem;
+    line-height: 0.875em;
+}
+
+.border-left-amethyst {
+    border-left: 0.25rem solid #a35ab6 !important;
+}
+
+.text-amethyst {
+    color: #a35ab6;
+}
+
+.bg-amethyst {
+    background-color: #a35ab6;
+}
+
+.nCol5 .col-xl-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+    .nCol5 .col-xl-4 img {
+        width: 60px;
+    }
+
+    .nCol5 .col-xl-4 .badge label {
+        margin: 0px;
+    }
+
+@media (max-width:1450px) {
+    .nCol5 .col-xl-4 .text-lg {
+        font-size: 14px;
+    }
+
+    .nCol5 .col-xl-4 img {
+        width: 40px;
+    }
+}
+
+
+@media (max-width:991px) {
+    .nCol5 .col-xl-4 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+
+    .bg-login-image {
+        display: block;
+        height: 120px !important;
+        background-size: 80% 80% !important;
+    }
+}
+
+@media (max-width:610px) {
+    .nCol5 .col-xl-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width:575px) {
+    .nCol5 .col-xl-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+/***/
+.toggle-btn {
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    background: url("../img/close.png") no-repeat 28px center #e74c3c;
+    cursor: pointer;
+    -webkit-transition: background-color 0.4s ease-in-out;
+    -moz-transition: background-color 0.4s ease-in-out;
+    -o-transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+    .toggle-btn.active {
+        background: url("../img/check-.png") no-repeat 10px center #2ecc71;
+    }
+
+        .toggle-btn.active .round-btn {
+            left: 28px;
+        }
+
+    .toggle-btn .round-btn {
+        width: 18px;
+        height: 18px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        margin-top: -9px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .toggle-btn .cb-value {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 9;
+        cursor: pointer;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+/**/
+.crewTableData {
+}
+
+    .crewTableData li {
+        margin: 5px 0px;
+    }
+
+    .crewTableData small {
+        width: 110px;
+        float: left;
+        font-size: 13px;
+        font-weight: normal;
+        color: #777;
+    }
+
+    .crewTableData p {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0px;
+    }
+
+.bg-amethyst-op {
+    background: rgba(163, 90, 182, 0.2);
+}
+
+.bg-primary-op {
+    background: rgba(78, 115, 223, 0.2);
+}
+
+.bg-success-op {
+    background: rgba(28, 200, 138, 0.2);
+}
+
+.bg-info-op {
+    background: rgba(54, 185, 204, 0.2);
+}
+
+.bg-warning-op {
+    background: rgba(246, 194, 62, 0.2);
+}

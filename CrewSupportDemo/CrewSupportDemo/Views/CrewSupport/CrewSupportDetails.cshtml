@@ -1,0 +1,377 @@
+﻿@model CrewInterface.iCrewSupport
+@{
+    ViewBag.Title = "CrewSupportDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Heading -->
+@*<div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Crew Support Details</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+        </a>
+    </div>*@
+<!-- Content Row -->
+
+<div class="row nCol5">    
+    <div class="col-xl-4 mb-4">
+        <div class="card border-left-amethyst shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-lg font-weight-bold text-amethyst text-uppercase mb-1">
+                            Owner Operator
+                        </div>
+                        <a href="#">
+                            <div class="badge text-lg h5 mb-0 font-weight-bold bg-amethyst text-white">
+                                @Html.LabelFor(m => m.OwnerCount, Convert.ToString(Model.OwnerCount))
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <img src="~/img/flight-operator.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+                            Pilot
+                        </div>
+                        <a href="#">
+                            <div class="badge text-lg h5 mb-0 font-weight-bold bg-primary text-white">
+                                @Html.LabelFor(m => m.PilotCount, Convert.ToString(Model.PilotCount))
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <img src="~/img/pilot.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+                            FA
+                        </div>
+                        <a href="#">
+                            <div class="badge text-lg h5 mb-0 font-weight-bold bg-success text-white">
+                                @Html.LabelFor(m => m.FACount, Convert.ToString(Model.FACount))
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        @*<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>*@
+                        <img src="~/img/air-hostess.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-lg font-weight-bold text-info text-uppercase mb-1">
+                            FI
+                        </div>
+                        <a href="#">
+                            <div class="badge text-lg h5 mb-0 font-weight-bold bg-info text-white">
+                                @Html.LabelFor(m => m.InstructorCount, Convert.ToString(Model.InstructorCount))
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="col-auto">
+                        <img src="~/img/flight-attendant.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
+                            SIC
+                        </div>
+                        <a href="#">
+                            <div class="badge text-lg h5 mb-0 font-weight-bold bg-warning text-white">
+                                @Html.LabelFor(m => m.SICCount, Convert.ToString(Model.SICCount))
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="col-auto">
+                        <img src="~/img/co-pilot.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Content Row -->
+<div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Crew Support Details</h6>
+                    <div class="d-flex align-items-center">
+                        <label>Membership Type &nbsp;</label>
+                        <select class="form-control" style="width:200px;" id="ddlMemberShipType">
+                            <option>-- Select All --</option>
+                            <option>Owner Operator</option>
+                            <option>Pilot</option>
+                            <option>Flight Attendant</option>
+                            <option>Flight Instructor</option>
+                            <option>Second In Command</option>
+                        </select>
+
+                        @*<span>Status&nbsp;</span>
+                        <select class="form-control" style="width:200px;" id="ddlStatus">
+                            <option>-- Select All --</option>
+                            <option>Active</option>
+                            <option>De-Active</option>
+                        </select>*@
+                        <button class="btn btn-primary btn-user" type="submit" id="btnRefresh" style="margin-left:10px;float:right;">Refresh</button>
+                    </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="GriddataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Membership Type</th>
+                                <th>Gender</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email ID</th>
+                                <th>Country</th>
+                                <th>Phone No.</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content Row -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crew details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tooltiptext">
+                    <ul class="list-inline crewTableData">
+                        <li>
+                            <small>Membership Type:</small>
+                            <p id="txtMembershupType"></p>
+                        </li>
+                        <li>
+                            <small>First Name :</small>
+                            <p id="txtFName"></p>
+                        </li>
+                        <li>
+                            <small>Last Name :</small>
+                            <p id="txtLName"></p>
+                        </li>
+                        <li>
+                            <small>Gender :</small>
+                            <p id="txtGender"></p>
+                        </li>
+
+                        <li>
+                            <small>Email Address :</small>
+                            <p id="txtEmail"></p>
+                        </li>
+                        <li>
+                            <small>Country :</small>
+                            <p id="txtCountryCode"></p>
+                        </li>
+                        <li>
+                            <small>Phone Number :</small>
+                            <p id="txtPhone"></p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <!-- Custom styles for this page -->
+    <link href="~/js/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <!-- Page level plugins -->
+    <script src="~/js/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/js/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger
+            Clear();
+        });
+
+        function P_WebsiteActiveDeActivePilot(status, PilotId) {
+            debugger
+            $.ajax({
+                url: "/CrewSupport/P_WebsiteActiveDeActivePilot?status=" + status + "&PilotId=" + PilotId,
+                type: "POST",
+                async: false,
+                success: function (data) {
+                    debugger
+
+                }
+            });
+        }
+
+        function Clear() {
+            $("#ddlStatus").val("-- Select All --");
+            $('#dataTable').DataTable();
+            BindGrid();
+            $('.cb-value').click(function () {
+                debugger
+                var mainParent = $(this).parent('.toggle-btn');
+                var PilotId = $(this).parent('.toggle-btn')[0].id.replace('div', '');
+                if ($(mainParent).find('input.cb-value').is(':checked')) {
+                    P_WebsiteActiveDeActivePilot("false", PilotId);
+                    $(mainParent).addClass('active');
+                } else {
+                    P_WebsiteActiveDeActivePilot("true", PilotId);
+                    $(mainParent).removeClass('active');
+                }
+            });
+        }
+        $('#btnRefresh').click(function () {
+            debugger
+            window.location.href = '/CrewSupport/CrewSupportDetails/';
+        });
+        
+    </script>
+    <script>
+        function BindGrid(status) {       
+            debugger
+            $.ajax({
+                url: "/CrewSupport/BindGrid?status=" + status,
+                type: "POST",
+                async: false,
+                success: function (data) {
+                    debugger
+                    var data2 = data.lstgrid;
+                    $('#GriddataTable').DataTable({
+                        destroy: true,
+                        data: data2,
+                        ordering: false,
+                        language: {
+                            decimal: ',',
+                            thousands: '.'
+                        },
+                        columns: [
+                            {
+                                data: 'pkPilotId', render: function (data, type, row) {
+                                    return "<button type='button' id=" + row.pkPilotId + " class='btn btn-default btn-xs' onclick=ViewDetail('" + row.pkPilotId + "')  data-toggle='modal' data-target='#exampleModal'><i class='fas fa-eye fa-fw'></i></button>";
+                                }
+                            },
+                            { data: 'MembershipType' },
+                            { data: 'PilotFname' },
+                            { data: 'PilotLName' },
+                            { data: 'PilotGender' },
+                            { data: 'EmailId' },
+                            { data: 'CuLocCountry' },
+                            { data: 'cellNumber' },
+
+                            {
+                                data: 'pkPilotId', render: function (data, type, row) {
+                                    if (row.IsVoid == 0) {
+                                        return "<div id=div" + row.pkPilotId + " class='toggle-btn active'><input type='checkbox' class='cb-value'/><span class='round-btn'></span></div>";
+
+                                    }
+                                    else {
+                                        return "<div id=div" + row.pkPilotId + " class='toggle-btn'><input type='checkbox' class='cb-value'/><span class='round-btn'></span></div>";
+                                    }
+                                }
+                            },
+                        ],
+                        "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            if (aData['MembershipType'] == "Owner Operator") {
+                                $('td', nRow).addClass('bg-amethyst-op');
+                            }
+                            else if (aData['MembershipType'] == "Pilot") {
+                                $('td', nRow).addClass('bg-primary-op');
+                            }
+                            else if (aData['MembershipType'] == "Flight Attendant") {
+                                $('td', nRow).addClass('bg-success-op');
+                            }
+                            else if (aData['MembershipType'] == "Instructor") {
+                                $('td', nRow).addClass('bg-info-op');
+                            }
+                            else if (aData['MembershipType'] == "Second In Command") {
+                                $('td', nRow).addClass('bg-warning-op');
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function ViewDetail(pkPilotId) {
+
+            debugger
+            $.ajax({
+                url: "/CrewSupport/GetPilotFullDetail?pkPilotId=" + pkPilotId,
+                type: "POST",
+                async: false,
+                success: function (data) {
+                    debugger
+                    $("#txtMembershupType").text(data.lstgrid[0].MembershipType);
+                    $("#txtGender").text(data.lstgrid[0].PilotGender);
+                    $("#txtFName").text(data.lstgrid[0].PilotFname);
+                    $("#txtLName").text(data.lstgrid[0].PilotLName);
+                    $("#txtEmail").text(data.lstgrid[0].EmailId);
+                    $("#txtCountryCode").text(data.lstgrid[0].CuLocCountry);
+                    $("#txtPhone").text(data.lstgrid[0].cellNumber);
+
+                }
+            });
+        }
+        $('#ddlMemberShipType').change(function () {
+            debugger
+            BindGrid($("#ddlMemberShipType").val());
+        });
+        $('#ddlStatus').change(function () {
+            debugger
+            BindGrid("Status");
+        });
+    </script>
+}
